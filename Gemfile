@@ -49,4 +49,5 @@ end
 gem 'devise'
 gem 'devise-jwt'
 gem 'rack-cors'
+gem 'byebug'
 
