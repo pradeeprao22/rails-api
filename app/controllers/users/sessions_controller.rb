@@ -4,16 +4,15 @@ class Users::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  def new
-    # byebug
-    # super
-    self.resource = resource_class.new(configure_sign_in_params)
+  # def new
+  #   # super
+  #   self.resource = resource_class.new(configure_sign_in_params)
 
-    render json: {
-      user: resource.attributes.except("password"),
-      token: resource.jti
-    }, status: :ok
-  end
+  #   render json: {
+  #     user: resource.attributes.except("password"),
+  #     token: resource.jti
+  #   }, status: :ok
+  # end
 
   # POST /resource/sign_in
   def create
@@ -26,6 +25,11 @@ class Users::SessionsController < Devise::SessionsController
       token: resource.jti
     }, status: :ok
   end
+
+    # GET /auth/verify
+    def verify
+      render json: current_user.attributes.except("password"), status: :ok
+    end
 
   # DELETE /resource/sign_out
   # def destroy
