@@ -16,7 +16,6 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    byebug
     # super
     self.resource = resource_class.find_by(email: configure_sign_in_params[:email])
 
@@ -26,10 +25,10 @@ class Users::SessionsController < Devise::SessionsController
     }, status: :ok
   end
 
-    # GET /auth/verify
-    def verify
-      render json: current_user.attributes.except("password"), status: :ok
-    end
+  # GET /auth/verify
+  def verify
+    render json: current_user.attributes.except("password"), status: :ok
+  end
 
   # DELETE /resource/sign_out
   # def destroy
