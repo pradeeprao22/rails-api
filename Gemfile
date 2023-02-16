@@ -50,4 +50,5 @@ gem 'devise'
 gem 'devise-jwt'
 gem 'rack-cors'
 gem 'byebug'
+gem 'faker', '~> 3.1', '>= 3.1.1'
 
