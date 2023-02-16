@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
+
+40.times do
+    @group = Group.create(name: Faker::Name.name, qty: Faker::Alphanumeric.alpha(number: 10) )
+end
+
+40.times do
+    @person = Person.create(name: Faker::Name.name, img: Faker::Alphanumeric.alpha(number: 10), note: Faker::Markdown.emphasis , age: Faker::Alphanumeric.alpha(number: 10), group_id: @group.id)
+end
+
+puts "done"
